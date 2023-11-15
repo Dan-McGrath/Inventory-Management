@@ -9,6 +9,10 @@ const usersRouter = require("./routes/users");
 
 const app = express();
 
+//set up dotenv
+
+require('dotenv').config()
+
 //Set up database
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
