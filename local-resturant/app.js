@@ -11,14 +11,14 @@ const app = express();
 
 //set up dotenv
 
-require('dotenv').config()
+require("dotenv").config();
 
 //Set up database
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
 //TO-DO add database url
-const mongoDB = "insert_your_database_url_here";
+const mongoDB = process.env.DB_URL;
 
 main().catch((err) => console.log(err));
 async function main() {
