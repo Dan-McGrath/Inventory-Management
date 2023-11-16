@@ -8,7 +8,7 @@ exports.desert_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific Desert.
 exports.desert_detail = asyncHandler(async (req, res, next) => {
-  res.send(`NOT IMPLEMENTED: Desert detail: ${req.params.id}`);
+  res.send(`NOT IMPLEMENTED: Desert detail: ${req.params.slug}`);
 });
 
 // Display Desert create form on GET.
