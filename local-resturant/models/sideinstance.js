@@ -21,7 +21,7 @@ SideInstanceSchema.virtual("slug").get(function () {
 
 
 SideInstanceSchema.virtual("url").get(function () {
-  return `/menu/${this.entree.category.slug}/sideinstance/${this.slug}`;
+  return `/menu/${this.side.category.slug}/sideinstance/${this._id}`;
 });
 
 module.exports = mongoose.model("SideInstance", SideInstanceSchema);
