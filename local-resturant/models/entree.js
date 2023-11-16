@@ -9,6 +9,12 @@ const EntreSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
 });
 
+EntreSchema.virtual("slug").get(function () {
+  let slug = this.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 EntreSchema.virtual("url").get(function () {
   return `/menu/${this.category._id}/${this._id}`;
 });
