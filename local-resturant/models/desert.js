@@ -9,6 +9,12 @@ const DesertSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
 });
 
+DesertSchema.virtual("slug").get(function () {
+  let slug = this.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 DesertSchema.virtual("url").get(function () {
   return `/menu/${this.category._id}/${this._id}`;
 });
