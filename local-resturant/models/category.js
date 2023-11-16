@@ -13,7 +13,7 @@ CategorySchema.virtual("slug").get(function () {
 });
 
 CategorySchema.virtual("url").get(function () {
-  return `/menu/${this._id}`;
+  return `/menu/${this.slug}`;
 });
 
 module.exports = mongoose.model("Category", CategorySchema);
