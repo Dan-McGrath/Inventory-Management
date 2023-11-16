@@ -19,6 +19,12 @@ DesertInstanceSchema.virtual("slug").get(function () {
   return slug;
 });
 
+DesertInstanceSchema.virtual("categorySlug").get(function () {
+  let slug = this.category.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 DesertInstanceSchema.virtual("url").get(function () {
   return `/menu/${this.entree.category._id}/desertinstance/${this._id}`;
 });
