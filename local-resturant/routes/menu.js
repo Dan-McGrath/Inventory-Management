@@ -45,38 +45,38 @@ router.get("/deserts", desert_controller.desert_list);
 /// DESERT INSTANCE ROUTE ///
 
 router.get(
-  "/desertinstance/create",
+  "/desert/desertinstance/create",
   desert_instance_controller.desertinstance_create_get
 );
 router.post(
-  "/desertinstance/create",
+  "/desert/desertinstance/create",
   desert_instance_controller.desertinstance_create_post
 );
 
 router.get(
-  "/desertinstance/:slug/delete",
+  "/desert/desertinstance/:id/delete",
   desert_instance_controller.desertinstance_delete_get
 );
 router.post(
-  "/desertinstance/:slug/delete",
+  "/desert/desertinstance/:id/delete",
   desert_instance_controller.desertinstance_delete_post
 );
 
 router.get(
-  "/desertinstance/:slug/update",
+  "/desert/desertinstance/:id/update",
   desert_instance_controller.desertinstance_update_get
 );
 router.post(
-  "/desertinstance/:slug/update",
+  "/desert/desertinstance/:id/update",
   desert_instance_controller.desertinstance_update_post
 );
 
 router.get(
-  "/desertinstance/:slug",
+  "/desert/desertinstance/:id",
   desert_instance_controller.desertinstance_detail
 );
 
-router.get("/desertinstances", desert_instance_controller.desertinstance_list);
+router.get("/desert/desertinstances", desert_instance_controller.desertinstance_list);
 
 /// DRINK ROUTES ///
 
@@ -111,35 +111,35 @@ router.get("/entrees", entree_controller.entree_list);
 /// ENTREE INSTSANCE ROUTES ///
 
 router.get(
-  "/entreeinstance/create",
+  "/entree/entreeinstance/create",
   entree_instance_controller.entreeinstance_create_get
 );
 router.post(
-  "/entreeinstance/create",
+  "/entree/entreeinstance/create",
   entree_instance_controller.entreeinstance_create_post
 );
 
-router.get("/entreeinstance/:slug/delete", entree_controller.entree_delete_get);
+router.get("/entreeinstance/:id/delete", entree_controller.entree_delete_get);
 router.post(
-  "/entreeinstance/:slug/delete",
+  "/entree/entreeinstance/:id/delete",
   entree_instance_controller.entreeinstance_delete_post
 );
 
 router.get(
-  "/entreeinstance/:slug/update",
+  "/entree/entreeinstance/:id/update",
   entree_instance_controller.entreeinstance_update_get
 );
 router.post(
-  "/entreeinstance/:slug/update",
+  "/entree/entreeinstance/:id/update",
   entree_instance_controller.entreeinstance_update_post
 );
 
 router.get(
-  "/entreeinstance/:slug",
+  "/entree/entreeinstance/:slug",
   entree_instance_controller.entreeinstance_detail
 );
 
-router.get("/entreeinstances", entree_instance_controller.entreeinstance_list);
+router.get("/entree/entreeinstances", entree_instance_controller.entreeinstance_list);
 
 /// SIDE ROUTES ///
 
@@ -159,34 +159,34 @@ router.get("/sides", side_controller.side_list);
 /// SIDE INSTANCE ROUTES ///
 
 router.get(
-  "/sideinstance/create",
+  "/side/sideinstance/create",
   side_instance_controller.sideinstance_create_get
 );
 router.post(
-  "/sideinstance/create",
+  "/side/sideinstance/create",
   side_instance_controller.sideinstance_create_post
 );
 
 router.get(
-  "/sideinstance/:slug/delete",
+  "/side/sideinstance/:id/delete",
   side_instance_controller.sideinstance_delete_get
 );
 router.post(
-  "/sideinstance/:slug/delete",
+  "/side/sideinstance/:id/delete",
   side_instance_controller.sideinstance_delete_post
 );
 
 router.get(
-  "/sideinstance/:slug/update",
+  "/side/sideinstance/:id/update",
   side_instance_controller.sideinstance_update_get
 );
 router.post(
-  "/sideinstance/:slug/update",
+  "/side/sideinstance/:id/update",
   side_instance_controller.sideinstance_update_post
 );
 
-router.get("/sideinstance/:slug", side_instance_controller.sideinstance_detail);
+router.get("/side/sideinstance/:id", side_instance_controller.sideinstance_detail);
 
-router.get("/sideinstances", side_instance_controller.sideinstance_list);
+router.get("/side/sideinstances", side_instance_controller.sideinstance_list);
 
 module.exports = router;
