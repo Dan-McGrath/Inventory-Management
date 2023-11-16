@@ -9,6 +9,12 @@ const SideSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
 });
 
+SideSchema.virtual("slug").get(function () {
+  let slug = this.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 SideSchema.virtual("url").get(function () {
   return `/menu/${this.category._id}/${this._id}`;
 });
