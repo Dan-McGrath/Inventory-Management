@@ -15,6 +15,12 @@ EntreSchema.virtual("slug").get(function () {
   return slug;
 });
 
+EntreSchema.virtual("categorySlug").get(function () {
+  let slug = this.category.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 EntreSchema.virtual("url").get(function () {
   return `/menu/${this.category._id}/${this._id}`;
 });
