@@ -21,7 +21,7 @@ DesertInstanceSchema.virtual("slug").get(function () {
 
 
 DesertInstanceSchema.virtual("url").get(function () {
-  return `/menu/${this.entree.category.slug}/desertinstance/${this.slug}`;
+  return `/menu/${this.desert.category.slug}/desertinstance/${this._id}`;
 });
 
 module.exports = mongoose.model("DesertInstance", DesertInstanceSchema);
