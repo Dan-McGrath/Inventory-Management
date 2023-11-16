@@ -19,14 +19,8 @@ EntreeInstanceSchema.virtual("slug").get(function () {
   return slug;
 });
 
-EntreeInstanceSchema.virtual("categorySlug").get(function () {
-  let slug = this.category.name;
-  slug.replace(" ", "_");
-  return slug;
-});
-
 EntreeInstanceSchema.virtual("url").get(function () {
-  return `/menu/${this.entree.category._id}/entreeinstance/${this._id}`;
+  return `/menu/${this.entree.category.slug}/entreeinstance/${this._id}`;
 });
 
 module.exports = mongoose.model("EntreeInstance", EntreeInstanceSchema);
