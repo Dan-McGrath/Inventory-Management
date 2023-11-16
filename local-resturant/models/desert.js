@@ -9,11 +9,7 @@ const DesertSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
 });
 
-DesertSchema.virtual("categorySlug").get(function () {
-  let slug = this.category.name;
-  slug.replace(" ", "_");
-  return slug;
-});
+
 
 DesertSchema.virtual("slug").get(function () {
   let slug = this.name;
@@ -22,7 +18,7 @@ DesertSchema.virtual("slug").get(function () {
 });
 
 DesertSchema.virtual("url").get(function () {
-  return `/menu/${this.category._id}/${this._id}`;
+  return `/menu/${this.category.slug}/${this.slug}`;
 });
 
 module.exports = mongoose.model("Desert", DesertSchema);
