@@ -13,6 +13,12 @@ const DesertInstanceSchema = new Schema({
   },
 });
 
+DesertInstanceSchema.virtual("slug").get(function () {
+  let slug = this.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 DesertInstanceSchema.virtual("url").get(function () {
   return `/menu/${this.entree.category._id}/desertinstance/${this._id}`;
 });
