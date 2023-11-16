@@ -13,6 +13,12 @@ const SideInstanceSchema = new Schema({
   },
 });
 
+SideInstanceSchema.virtual("slug").get(function () {
+  let slug = this.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 SideInstanceSchema.virtual("url").get(function () {
   return `/menu/${this.entree.category._id}/sideinstance/${this._id}`;
 });
