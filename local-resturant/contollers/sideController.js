@@ -8,7 +8,7 @@ exports.side_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific Side.
 exports.side_detail = asyncHandler(async (req, res, next) => {
-  res.send(`NOT IMPLEMENTED: Side detail: ${req.params.id}`);
+  res.send(`NOT IMPLEMENTED: Side detail: ${req.params.slug}`);
 });
 
 // Display Side create form on GET.
