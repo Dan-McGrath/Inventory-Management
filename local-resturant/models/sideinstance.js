@@ -19,6 +19,12 @@ SideInstanceSchema.virtual("slug").get(function () {
   return slug;
 });
 
+SideInstanceSchema.virtual("categorySlug").get(function () {
+  let slug = this.category.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 SideInstanceSchema.virtual("url").get(function () {
   return `/menu/${this.entree.category._id}/sideinstance/${this._id}`;
 });
