@@ -31,230 +31,232 @@ router.get("/categories", category_controller.category_list);
 /// DESERT ROUTES ///
 
 router.get(
-  "/:category.slug/desert/create",
+  "/:categorySlug/desert/create",
   desert_controller.desert_create_get
 );
 router.post(
-  "/:category.slug/desert/create",
+  "/:categorySlug/desert/create",
   desert_controller.desert_create_post
 );
 
 router.get(
-  "/:category.slug/desert/:slug/delete",
+  "/:categorySlug/desert/:slug/delete",
   desert_controller.desert_delete_get
 );
 router.post(
-  "/:category.slug/desert/:slug/delete",
+  "/:categorySlug/desert/:slug/delete",
   desert_controller.desert_delete_post
 );
 
 router.get(
-  "/:category.slug/desert/:slug/update",
+  "/:categorySlug/desert/:slug/update",
   desert_controller.desert_update_get
 );
 router.post(
-  "/:category.slug/desert/:slug/update",
+  "/:categorySlug/desert/:slug/update",
   desert_controller.desert_update_post
 );
 
-router.get("/:category.slug/desert/:slug", desert_controller.desert_detail);
+router.get("/:categorySlug/desert/:slug", desert_controller.desert_detail);
 
-router.get("/:category.slug/deserts", desert_controller.desert_list);
+router.get("/:categorySlug/deserts", desert_controller.desert_list);
 
 /// DESERT INSTANCE ROUTE ///
 
 router.get(
-  "/:category.slug/desertinstance/create",
+  "/:categorySlug/desertinstance/create",
   desert_instance_controller.desertinstance_create_get
 );
 router.post(
-  "/:category.slug/desertinstance/create",
+  "/:categorySlug/desertinstance/create",
   desert_instance_controller.desertinstance_create_post
 );
 
 router.get(
-  "/:category.slug/desertinstance/:slug/delete",
+  "/:categorySlug/desertinstance/:slug/delete",
   desert_instance_controller.desertinstance_delete_get
 );
 router.post(
-  "/:category.slug/desertinstance/:slug/delete",
+  "/:categorySlug/desertinstance/:slug/delete",
   desert_instance_controller.desertinstance_delete_post
 );
 
 router.get(
-  "/:category.slug/desertinstance/:slug/update",
+  "/:categorySlug/desertinstance/:slug/update",
   desert_instance_controller.desertinstance_update_get
 );
 router.post(
-  "/:category.slug/desertinstance/:slug/update",
+  "/:categorySlug/desertinstance/:slug/update",
   desert_instance_controller.desertinstance_update_post
 );
 
 router.get(
-  "/:category.slug/desertinstance/:slug",
+  "/:categorySlug/desertinstance/:slug",
   desert_instance_controller.desertinstance_detail
 );
 
 router.get(
-  "/:category.slug/desertinstances",
+  "/:categorySlug/desertinstances",
   desert_instance_controller.desertinstance_list
 );
 
 /// DRINK ROUTES ///
 
-router.get("/:category.slug/drink/create", drink_controller.drink_create_get);
-router.post("/:category.slug/drink/create", drink_controller.drink_create_post);
+router.get("/:categorySlug/drink/create", drink_controller.drink_create_get);
+router.post("/:categorySlug/drink/create", drink_controller.drink_create_post);
 
 router.get(
-  "/:category.slug/drink/:slug/delete",
+  "/:categorySlug/drink/:slug/delete",
   drink_controller.drink_delete_get
 );
 router.post(
-  "/:category.slug/drink/:slug/delete",
+  "/:categorySlug/drink/:slug/delete",
   drink_controller.drink_delete_post
 );
 
 router.get(
-  "/:category.slug/drink/:slug/update",
+  "/:categorySlug/drink/:slug/update",
   drink_controller.drink_update_get
 );
 router.post(
-  "/:category.slug/drink/:slug/update",
+  "/:categorySlug/drink/:slug/update",
   drink_controller.drink_update_post
 );
 
-router.get("/:category.slug/drink/:slug", drink_controller.drink_detail);
+router.get("/:categorySlug/drink/:slug", drink_controller.drink_detail);
 
-router.get("/:category.slug/drinks", drink_controller.drink_list);
+router.get("/:categorySlug/drinks", drink_controller.drink_list);
 
 /// ENTREE ROUTES ///
 
 router.get(
-  "/:category.slug/entree/create",
+  "/:categorySlug/entree/create",
   entree_controller.entree_create_get
 );
 router.post(
-  "/:category.slug/entree/create",
+  "/:categorySlug/entree/create",
   entree_controller.entree_create_post
 );
 
 router.get(
-  "/:category.slug/entree/:slug/delete",
+  "/:categorySlug/entree/:slug/delete",
   entree_controller.entree_delete_get
 );
 router.post(
-  "/:category.slug/entree/:slug/delete",
+  "/:categorySlug/entree/:slug/delete",
   entree_controller.entree_delete_post
 );
 
 router.get(
-  "/:category.slug/entree/:slug/update",
+  "/:categorySlug/entree/:slug/update",
   entree_controller.entree_update_get
 );
 router.post(
-  "/:category.slug/entree/:slug/update",
+  "/:categorySlug/entree/:slug/update",
   entree_controller.entree_update_post
 );
 
-router.get("/:category.slug/entree/:slug", entree_controller.entree_detail);
+router.get("/:categorySlug/entree/:slug", entree_controller.entree_detail);
 
-router.get("/:category.slug/entrees", entree_controller.entree_list);
+router.get("/:categorySlug/entrees", entree_controller.entree_list);
 
 /// ENTREE INSTSANCE ROUTES ///
 
 router.get(
-  "/:category.slug/entreeinstance/create",
+  "/:categorySlug/entreeinstance/create",
   entree_instance_controller.entreeinstance_create_get
 );
 router.post(
-  "/:category.slug/entreeinstance/create",
+  "/:categorySlug/entreeinstance/create",
   entree_instance_controller.entreeinstance_create_post
 );
 
-router.get("/:category.slug/entreeinstance/:slug/delete", entree_controller);
+router.get("/:categorySlug/entreeinstance/:slug/delete", entree_controller.entree_delete_get);
 router.post(
-  "/:category.slug/entreeinstance/:slug/delete",
+  "/:categorySlug/entreeinstance/:slug/delete",
   entree_instance_controller.entreeinstance_delete_post
 );
 
 router.get(
-  "/:category.slug/entreeinstance/:slug/update",
+  "/:categorySlug/entreeinstance/:slug/update",
   entree_instance_controller.entreeinstance_update_get
 );
 router.post(
-  "/:category.slug/entreeinstance/:slug/update",
+  "/:categorySlug/entreeinstance/:slug/update",
   entree_instance_controller.entreeinstance_update_post
 );
 
 router.get(
-  "/:category.slug/entreeinstance/:slug",
+  "/:categorySlug/entreeinstance/:slug",
   entree_instance_controller.entreeinstance_detail
 );
 
 router.get(
-  "/:category.slug/entreeinstances",
+  "/:categorySlug/entreeinstances",
   entree_instance_controller.entreeinstance_list
 );
 
 /// SIDE ROUTES ///
 
-router.get("/:category.slug/side/create", side_controller.side_create_get);
-router.post("/:category.slug/side/create", side_controller.side_create_post);
+router.get("/:categorySlug/side/create", side_controller.side_create_get);
+router.post("/:categorySlug/side/create", side_controller.side_create_post);
 
 router.get(
-  "/:category.slug/side/:slug/delete",
+  "/:categorySlug/side/:slug/delete",
   side_controller.side_delete_get
 );
 router.post(
-  "/:category.slug/side/:slug/delete",
+  "/:categorySlug/side/:slug/delete",
   side_controller.side_delete_post
 );
 
 router.get(
-  "/:category.slug/side/:slug/update",
+  "/:categorySlug/side/:slug/update",
   side_controller.side_update_get
 );
-router.post("/:category.slug/side/:slug", side_controller.side_update_post);
+router.post("/:categorySlug/side/:slug", side_controller.side_update_post);
 
-router.get("/:category.slug/side/:slug", side_controller.side_detail);
+router.get("/:categorySlug/side/:slug", side_controller.side_detail);
 
-router.get("/:category.slug/sides", side_controller.side_list);
+router.get("/:categorySlug/sides", side_controller.side_list);
 
 /// SIDE INSTANCE ROUTES ///
 
 router.get(
-  "/:category.slug/sideinstance/create",
+  "/:categorySlug/sideinstance/create",
   side_instance_controller.sideinstance_create_get
 );
 router.post(
-  "/:category.slug/sideinstance/create",
+  "/:categorySlug/sideinstance/create",
   side_instance_controller.sideinstance_create_post
 );
 
 router.get(
-  "/:category.slug/sideinstance/:slug/delete",
+  "/:categorySlug/sideinstance/:slug/delete",
   side_instance_controller.sideinstance_delete_get
 );
 router.post(
-  "/:category.slug/sideinstance/:slug/delete",
+  "/:categorySlug/sideinstance/:slug/delete",
   side_instance_controller.sideinstance_delete_post
 );
 
 router.get(
-  "/:category.slug/sideinstance/:slug/update",
+  "/:categorySlug/sideinstance/:slug/update",
   side_instance_controller.sideinstance_update_get
 );
 router.post(
-  "/:category.slug/sideinstance/:slug/update",
+  "/:categorySlug/sideinstance/:slug/update",
   side_instance_controller.sideinstance_update_post
 );
 
 router.get(
-  "/:category.slug/sideinstance/:slug",
+  "/:categorySlug/sideinstance/:slug",
   side_instance_controller.sideinstance_detail
 );
 
 router.get(
-  "/:category.slug/sideinstances",
+  "/:categorySlug/sideinstances",
   side_instance_controller.sideinstance_list
 );
+
+module.exports = router;
