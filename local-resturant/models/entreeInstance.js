@@ -13,6 +13,12 @@ const EntreeInstanceSchema = new Schema({
   },
 });
 
+EntreeInstanceSchema.virtual("slug").get(function () {
+  let slug = this.name;
+  slug.replace(" ", "_");
+  return slug;
+});
+
 EntreeInstanceSchema.virtual("url").get(function () {
   return `/menu/${this.entree.category._id}/entreeinstance/${this._id}`;
 });
