@@ -15,14 +15,8 @@ SideSchema.virtual("slug").get(function () {
   return slug;
 });
 
-SideSchema.virtual("categorySlug").get(function () {
-  let slug = this.category.name;
-  slug.replace(" ", "_");
-  return slug;
-});
-
 SideSchema.virtual("url").get(function () {
-  return `/menu/${this.category._id}/${this._id}`;
+  return `/menu/${this.category.slug}/${this.slug}`;
 });
 
 module.exports = mongoose.model("Side", SideSchema);
