@@ -1,7 +1,33 @@
 doctype html
-html
+html(lang='en')
   head
     title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    nav 
+      block header 
+        ul 
+          li 
+            a(href='/menu') Home 
+          li 
+            a(href='/menu/entrees') Entrees 
+          li 
+            a(href='/menu/sides') Sides 
+          li
+            a(href='/menu/drinks') Drinks
+          li 
+            a(href='/menu/deserts') Deserts
+          li
+            hr
+          li 
+            a(href='menu/entree/create') Create new Entree 
+          li 
+            a(href='menu/side/create') Create new Side 
+          li 
+            a(href='menu/drink/create') Create new Drink 
+          li 
+            a(href='menu/desert/create') Create new Desert
+    div.content
+      block content
