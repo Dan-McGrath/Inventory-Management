@@ -2,23 +2,27 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const DesertSchema = new Schema({
+const ItemSchema = new Schema({
   name: { type: String, required: true, maxLength: 100 },
   price: { type: Number, required: true },
   description: { type: String },
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
 });
 
+ItemSchema.virtual("categorySlug").get(function () {
+  let slug = this.category.name;
+  slug.replace(" ", "_");
+  return slug;
+});
 
-
-DesertSchema.virtual("slug").get(function () {
+ItemSchema.virtual("slug").get(function () {
   let slug = this.name;
   slug.replace(" ", "_");
   return slug;
 });
 
-DesertSchema.virtual("url").get(function () {
+ItemSchema.virtual("url").get(function () {
   return `/menu/${this.category.slug}/${this.slug}`;
 });
 
-module.exports = mongoose.model("Desert", DesertSchema);
+module.exports = mongoose.model("Item", ItemSchema);
