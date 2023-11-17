@@ -1,54 +1,29 @@
 const Category = require("../models/category");
-const Desert = require("../models/desert");
-const Drink = require("../models/drink");
-const Entree = require("../models/entree");
-const Side = require("../models/side");
-const DesertInstance = require("../models/desertinstance");
-const EntreeInstance = require("../models/entreeInstance");
-const SideInstance = require("../models/sideinstance");
+const Item = require("../models/item");
+const ItemInstance = require("../models/iteminstance");
+
 
 const asyncHandler = require("express-async-handler");
 
 exports.index = asyncHandler(async (req, res, next) => {
   const [
     categories,
-    deserts,
-    drinks,
-    entrees,
-    sides,
-    numDesertInstances,
-    numSideInstances,
-    numEntreeInstances,
-    numAvailableDesertInstance,
-    numAvailableEntreeInstance,
-    numAvailableSideInstance,
+    items,
+    numItemsInstances,
+    numAvailableItemInstance,
   ] = await Promise.all([
     Category.find({}, "name").exec(),
-    Desert.find({}, "name price category").sort({ name: 1 }).exec(),
-    Drink.find({}, "name price category").sort({ name: 1 }).exec(),
-    Entree.find({}, "name price category").sort({ name: 1 }).exec(),
-    Side.find({}, "name price category").sort({ name: 1 }).exec(),
-    DesertInstance.countDocuments().exec(),
-    SideInstance.countDocuments({}).exec(),
-    EntreeInstance.countDocuments({}).exec(),
-    DesertInstance.countDocuments({ status: "Available" }).exec(),
-    EntreeInstance.countDocuments({ status: "Available" }).exec(),
-    SideInstance.countDocuments({ status: "Available" }).exec(),
+    Item.find({}, "name price category").sort({ name: 1 }).exec(),
+    ItemInstance.countDocuments().exec(),
+    ItemInstance.countDocuments({ status: "Available" }).exec(),
   ]);
 
   res.render("index", {
     title: "Local Resturant",
     categories: categories,
-    deserts: deserts,
-    drinks: drinks,
-    entrees: entrees,
-    sides: sides,
-    desert_instance_count: numDesertInstances,
-    side_instance_count: numSideInstances,
-    entree_instance_count: numEntreeInstances,
-    available_desert_instance_count: numAvailableDesertInstance,
-    available_entree_instance_count: numAvailableEntreeInstance,
-    available_side_instance_count: numAvailableSideInstance,
+    items: items,
+    item_instance_count: numItemsInstances,
+    available_item_instance_count: numAvailableItemInstance,
   });
 });
 

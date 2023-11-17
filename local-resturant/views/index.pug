@@ -9,21 +9,5 @@ block content
     for category in categories 
       h2 #{category.name}
       div.items
-        for desert in deserts
-          if desert.category==category.id
-            div.item 
-              p #{desert.name}
-              
-        for drink in drinks
-          if drink.category==category.id
-            div.item 
-              p #{drink.name} 
-        for entree in entrees 
-          if entree.category==category.id 
-            div.item
-              p #{entree.name} 
-        for side in sides 
-          if side.category==category.id 
-            div.item
-              p #{side.name}
+        
       hr
