@@ -1,8 +1,15 @@
 const Category = require("../models/category");
+const Desert = require("../models/desert");
+const Drink = require("../models/drink");
+const Entree = require("../models/entree");
+const Side = require("../models/side");
+
 const asyncHandler = require("express-async-handler");
 
 exports.index = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Site home page");
+  res.render("index", {
+    title: "Local Resturant",
+  });
 });
 
 // Display list of all Categories.
