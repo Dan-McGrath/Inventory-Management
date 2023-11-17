@@ -10,15 +10,20 @@ block content
       h2 #{category.name}
       div.items
         for desert in deserts
-          if desert.category==category.id 
-            p #{desert.name}
+          if desert.category==category.id
+            div.item 
+              p #{desert.name}
+              
         for drink in drinks
-          if drink.category==category.id 
-            p #{drink.name} 
+          if drink.category==category.id
+            div.item 
+              p #{drink.name} 
         for entree in entrees 
           if entree.category==category.id 
-            p #{entree.name} 
+            div.item
+              p #{entree.name} 
         for side in sides 
           if side.category==category.id 
-            p #{side.name}
+            div.item
+              p #{side.name}
       hr
