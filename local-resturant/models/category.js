@@ -8,6 +8,7 @@ const CategorySchema = new Schema({
 
 CategorySchema.virtual("slug").get(function () {
   let slug = this.name;
+  slug.toLowerCase();
   slug.replace(" ", "_");
   return slug;
 });
