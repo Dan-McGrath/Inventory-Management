@@ -2,4 +2,23 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  div.hero
+    p Welcome to #[em Local Resturant], this is a demo site of a resturant menu/inventory website.
+     This is built using Express.
+  div.menu
+    for category in categories 
+      h2 #{category.name}
+      div.items
+        for desert in deserts
+          if desert.category==category.id 
+            p #{desert.name}
+        for drink in drinks
+          if drink.category==category.id 
+            p #{drink.name} 
+        for entree in entrees 
+          if entree.category==category.id 
+            p #{entree.name} 
+        for side in sides 
+          if side.category==category.id 
+            p #{side.name}
+      hr
