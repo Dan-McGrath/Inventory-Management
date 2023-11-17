@@ -3,6 +3,8 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const sass = require("node-sass");
+const sassMiddleware = require("node-sass-middleware");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -25,6 +27,15 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
 }
+
+app.use(
+  sassMiddleware({
+    src: path.join(__dirname, "/styles"),
+    dest: path.join(__dirname, "/public"),
+    debug: true,
+    outputStyle: "compressed",
+  })
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
