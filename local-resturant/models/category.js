@@ -18,9 +18,11 @@ CategorySchema.virtual("slug").get(function () {
   return slug;
 });
 
-CategorySchema.virtual('title').get(function () {
-  return this.name.charAt(0).toUpperCase() + this.name.slice(1);
-})
+CategorySchema.virtual("title").get(function () {
+  return this.name.split(' ')
+  .map(w => w[0].toUpperCase() + w.substring(1).toLowerCase())
+  .join(' ');
+});
 
 CategorySchema.virtual("url").get(function () {
   return `/menu/${this.slug}`;
