@@ -9,5 +9,26 @@ block content
     for category in categories 
       h2 #{category.name}
       div.items
-        
+        for item in items 
+          if item.category==category.id
+            div.item
+              h3 #{item.name}
+              p $#{item.price}
+              div.item-instance
+                - let count = 0
+                div.status 
+                  for iteminstance in iteminstances
+                      
+                    if iteminstance.item==item.id
+                      - count += 1
+                  
+                        p #{iteminstance.status}
+                          
+                if count!=0
+                  p Total items #{count}
+                      
       hr
+    div.count
+      h2 Total Counts
+      p Total Items: #{item_instance_count}
+      p Total Available Items: #{available_item_instance_count}
