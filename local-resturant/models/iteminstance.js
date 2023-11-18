@@ -14,13 +14,13 @@ const ItemInstanceSchema = new Schema({
 });
 
 ItemInstanceSchema.virtual("slug").get(function () {
-  let slug = this.name;
+  let slug = `${this.item.name}instance`;
   slug.replace(" ", "_");
   return slug;
 });
 
 ItemInstanceSchema.virtual("url").get(function () {
-  return `/menu/${this.item.category.slug}/${this.item.category.slug}instance/${this._id}`;
+  return `/menu/${this.item.category.slug}/${this.slug}instance/${this._id}`;
 });
 
 module.exports = mongoose.model("ItemInstance", ItemInstanceSchema);

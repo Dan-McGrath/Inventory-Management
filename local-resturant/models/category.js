@@ -14,7 +14,7 @@ CategorySchema.virtual("slug").get(function () {
 });
 
 CategorySchema.virtual("url").get(function () {
-  return `/menu/${this.slug}`;
+  return `/menu/${this.slug}s`;
 });
 
 module.exports = mongoose.model("Category", CategorySchema);

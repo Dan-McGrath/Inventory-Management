@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
 
 // Display list of all Items.
 exports.item_list = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Item list");
+  res.send(`NOT IMPLEMENTED: Item list ${req.params.slug}`);
 });
 
 // Display detail page for a specific Item.
@@ -13,7 +13,7 @@ exports.item_detail = asyncHandler(async (req, res, next) => {
 
 // Display Item create form on GET.
 exports.item_create_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Item create GET");
+  res.send(`NOT IMPLEMENTED: Item create GET ${req.params.categorySlug}`);
 });
 
 // Handle Item create on POST.
