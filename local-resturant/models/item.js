@@ -25,4 +25,8 @@ ItemSchema.virtual("url").get(function () {
   return `/menu/${this.category.slug}/${this.slug}`;
 });
 
+ItemSchema.virtual("title").get(function () {
+  return this.name.charAt(0).toUpperCase() + this.name.slice(1);
+});
+
 module.exports = mongoose.model("Item", ItemSchema);
