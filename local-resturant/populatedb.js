@@ -43,11 +43,12 @@ async function categoryCreate(index, name) {
   console.log(`Added Category: ${category.name}`);
 }
 
-async function itemCreate(index, name, price, description, category) {
+async function itemCreate(index, name, price, description, category, instance) {
   const itemdetail = {
     name: name,
     price: price,
     category: category,
+    instance: instance,
   };
   if (description != false) itemdetail.description = description;
 
@@ -95,11 +96,11 @@ async function createItems() {
     ),
     itemCreate(3, "Fries", 0.99, false, categories[1]),
     itemCreate(4, "Baked Potato", 2.99, false, categories[1]),
-    itemCreate(5, "Coke", 1.99, "Soft Drink", categories[3]),
-    itemCreate(6, "Sprite", 1.99, "Soft Drink", categories[3]),
-    itemCreate(7, "Milkshake", 3.99, "Frozen Drink", categories[3]),
-    itemCreate(8, "Dr. Pepper", 1.99, "Soft Drink", categories[3]),
-    itemCreate(9, "Orange Juice", 0.99, "Juice", categories[3]),
+    itemCreate(5, "Coke", 1.99, "Soft Drink", categories[3], false),
+    itemCreate(6, "Sprite", 1.99, "Soft Drink", categories[3], false),
+    itemCreate(7, "Milkshake", 3.99, "Frozen Drink", categories[3], false),
+    itemCreate(8, "Dr. Pepper", 1.99, "Soft Drink", categories[3], false),
+    itemCreate(9, "Orange Juice", 0.99, "Juice", categories[3], false),
     itemCreate(
       10,
       "Cheeseburger",
