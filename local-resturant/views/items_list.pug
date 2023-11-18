@@ -7,10 +7,20 @@ block content
         ul 
             each item in items_list
                 .item  
-                    li 
-                        .top-row 
-                            a(href=item.url) #{item.name} 
-                            p $#{item.price}
-                        if item.description != null 
-                            p.description #{item.description}
+                    li
+                        if item.instance
+                            .top-row 
+                                a.name(href=item.url) #{item.title} 
+                                p $#{item.price}
+                            if item.description != null 
+                                p.description #{item.description}
+                        else 
+                            .top-row 
+                                p.name #{item.title} 
+                                p $#{item.price}
+                            if item.description != null 
+                                p.description #{item.description}
+
                 hr
+            else 
+                p There are no items in #{category.title}
