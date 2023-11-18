@@ -8,18 +8,11 @@ block content
             each item in items_list
                 .item  
                     li
-                        if item.instance
-                            .top-row 
-                                a.name(href=item.url) #{item.title} 
-                                p $#{item.price}
-                            if item.description != null 
-                                p.description #{item.description}
-                        else 
-                            .top-row 
-                                p.name #{item.title} 
-                                p $#{item.price}
-                            if item.description != null 
-                                p.description #{item.description}
+                        .top-row 
+                            a.name(href=item.url) #{item.title} 
+                            p $#{item.price}
+                        if item.description != null 
+                            p.description #{item.description}
 
                 hr
             else 
