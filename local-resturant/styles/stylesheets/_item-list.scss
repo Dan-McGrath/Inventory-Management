@@ -1,0 +1,21 @@
+.items-list {
+  
+    li {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr;
+        padding: 0.5em;
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            grid-column: 1 / span 2;
+        }
+        .description {
+            grid-column: 1 / span 2;
+            grid-row: 2 / span 1;
+            margin: 0.5em;
+        }
+        
+    }
+}
