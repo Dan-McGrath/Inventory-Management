@@ -3,11 +3,6 @@ body {
   height: 100vh;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  font: 1.5rem "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-  
-a {
-  color: #00B7FF;
 }
   
 nav {
@@ -36,8 +31,4 @@ nav {
   grid-row: 2 / 11;
   text-align: center;
 
-  h1 {
-    font-size: 3rem;
-    margin: 2rem;
-  }
 }
