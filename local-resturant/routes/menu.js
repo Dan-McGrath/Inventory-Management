@@ -22,7 +22,7 @@ router.get("/category/:slug", category_controller.category_detail);
 
 router.get("/categories", category_controller.category_list);
 
-/// DESERT ROUTES ///
+/// ITEM ROUTES ///
 
 router.get("/:categorySlug/create", item_controller.item_create_get);
 router.post("/:categorySlug/create", item_controller.item_create_post);
@@ -35,39 +35,39 @@ router.post("/:categorySlug/:slug/update", item_controller.item_update_post);
 
 router.get("/:categorySlug/:slug", item_controller.item_detail);
 
-router.get("/:categorySlug/deserts", item_controller.item_list);
+router.get("/:slug", item_controller.item_list);
 
 /// DESERT INSTANCE ROUTE ///
 
 router.get(
-  "/:categorySlug/desertinstance/create",
+  "/:categorySlug/:slug/create",
   item_instance_controller.iteminstance_create_get
 );
 router.post(
-  "/:categorySlug/desertinstance/create",
+  "/:categorySlug/:slug/create",
   item_instance_controller.iteminstance_create_post
 );
 
 router.get(
-  "/:categorySlug/desertinstance/:id/delete",
+  "/:categorySlug/:slug/:id/delete",
   item_instance_controller.iteminstance_delete_get
 );
 router.post(
-  "/:categorySlug/desertinstance/:id/delete",
+  "/:categorySlug/:slug/:id/delete",
   item_instance_controller.iteminstance_delete_post
 );
 
 router.get(
-  "/:categorySlug/desertinstance/:id/update",
+  "/:categorySlug/:slug/:id/update",
   item_instance_controller.iteminstance_update_get
 );
 router.post(
-  "/:categorySlug/desertinstance/:id/update",
+  "/:categorySlug/:slug/:id/update",
   item_instance_controller.iteminstance_update_post
 );
 
 router.get(
-  "/:categorySlug/desertinstance/:id",
+  "/:categorySlug/:slug/:id",
   item_instance_controller.iteminstance_detail
 );
 
@@ -76,127 +76,127 @@ router.get(
   item_instance_controller.iteminstance_list
 );
 
-/// DRINK ROUTES ///
+// /// DRINK ROUTES ///
 
-router.get("/:categorySlug/create", item_controller.item_create_get);
-router.post("/:categorySlug/create", item_controller.item_create_post);
+// router.get("/:categorySlug/create", item_controller.item_create_get);
+// router.post("/:categorySlug/create", item_controller.item_create_post);
 
-router.get("/:categorySlug/:slug/delete", item_controller.item_delete_get);
-router.post("/:categorySlug/:slug/delete", item_controller.item_delete_post);
+// router.get("/:categorySlug/:slug/delete", item_controller.item_delete_get);
+// router.post("/:categorySlug/:slug/delete", item_controller.item_delete_post);
 
-router.get("/:categorySlug/:slug/update", item_controller.item_update_get);
-router.post("/:categorySlug/:slug/update", item_controller.item_update_post);
+// router.get("/:categorySlug/:slug/update", item_controller.item_update_get);
+// router.post("/:categorySlug/:slug/update", item_controller.item_update_post);
 
-router.get("/:categorySlug/:slug", item_controller.item_detail);
+// router.get("/:categorySlug/:slug", item_controller.item_detail);
 
-router.get("/:categorySlug/drinks", item_controller.item_list);
+// router.get("/drinks", item_controller.item_list);
 
-/// ENTREE ROUTES ///
+// /// ENTREE ROUTES ///
 
-router.get("/:categorySlug/create", item_controller.item_create_get);
-router.post("/:categorySlug/create", item_controller.item_create_post);
+// router.get("/:categorySlug/create", item_controller.item_create_get);
+// router.post("/:categorySlug/create", item_controller.item_create_post);
 
-router.get("/:categorySlug/:slug/delete", item_controller.item_delete_get);
-router.post("/:categorySlug/:slug/delete", item_controller.item_delete_post);
+// router.get("/:categorySlug/:slug/delete", item_controller.item_delete_get);
+// router.post("/:categorySlug/:slug/delete", item_controller.item_delete_post);
 
-router.get("/:categorySlug/:slug/update", item_controller.item_update_get);
-router.post("/:categorySlug/:slug/update", item_controller.item_update_post);
+// router.get("/:categorySlug/:slug/update", item_controller.item_update_get);
+// router.post("/:categorySlug/:slug/update", item_controller.item_update_post);
 
-router.get("/:categorySlug/:slug", item_controller.item_detail);
+// router.get("/:categorySlug/:slug", item_controller.item_detail);
 
-router.get("/:categorySlug/entrees", item_controller.item_list);
+// router.get("/entrees", item_controller.item_list);
 
-/// ENTREE INSTSANCE ROUTES ///
+// /// ENTREE INSTSANCE ROUTES ///
 
-router.get(
-  "/:categorySlug/entreeinstance/create",
-  item_instance_controller.iteminstance_create_get
-);
-router.post(
-  "/:categorySlug/entreeinstance/create",
-  item_instance_controller.iteminstance_create_post
-);
+// router.get(
+//   "/:categorySlug/entreeinstance/create",
+//   item_instance_controller.iteminstance_create_get
+// );
+// router.post(
+//   "/:categorySlug/entreeinstance/create",
+//   item_instance_controller.iteminstance_create_post
+// );
 
-router.get(
-  "/:categorySlug/entreeinstance/:id/delete",
-  item_controller.item_delete_get
-);
-router.post(
-  "/:categorySlug/entreeinstance/:id/delete",
-  item_instance_controller.iteminstance_delete_post
-);
+// router.get(
+//   "/:categorySlug/entreeinstance/:id/delete",
+//   item_controller.item_delete_get
+// );
+// router.post(
+//   "/:categorySlug/entreeinstance/:id/delete",
+//   item_instance_controller.iteminstance_delete_post
+// );
 
-router.get(
-  "/:categorySlug/entreeinstance/:id/update",
-  item_instance_controller.iteminstance_update_get
-);
-router.post(
-  "/:categorySlug/entreeinstance/:id/update",
-  item_instance_controller.iteminstance_update_post
-);
+// router.get(
+//   "/:categorySlug/entreeinstance/:id/update",
+//   item_instance_controller.iteminstance_update_get
+// );
+// router.post(
+//   "/:categorySlug/entreeinstance/:id/update",
+//   item_instance_controller.iteminstance_update_post
+// );
 
-router.get(
-  "/:categorySlug/entreeinstance/:slug",
-  item_instance_controller.iteminstance_detail
-);
+// router.get(
+//   "/:categorySlug/entreeinstance/:slug",
+//   item_instance_controller.iteminstance_detail
+// );
 
-router.get(
-  "/:categorySlug/entreeinstances",
-  item_instance_controller.iteminstance_list
-);
+// router.get(
+//   "/:categorySlug/entreeinstances",
+//   item_instance_controller.iteminstance_list
+// );
 
-/// SIDE ROUTES ///
+// /// SIDE ROUTES ///
 
-router.get("/:categorySlug/create", item_controller.item_create_get);
-router.post("/:categorySlug/create", item_controller.item_create_post);
+// router.get("/:categorySlug/create", item_controller.item_create_get);
+// router.post("/:categorySlug/create", item_controller.item_create_post);
 
-router.get("/:categorySlug/:slug/delete", item_controller.item_delete_get);
-router.post("/:categorySlug/:slug/delete", item_controller.item_delete_post);
+// router.get("/:categorySlug/:slug/delete", item_controller.item_delete_get);
+// router.post("/:categorySlug/:slug/delete", item_controller.item_delete_post);
 
-router.get("/:categorySlug/:slug/update", item_controller.item_update_get);
-router.post("/:categorySlug/:slug", item_controller.item_update_post);
+// router.get("/:categorySlug/:slug/update", item_controller.item_update_get);
+// router.post("/:categorySlug/:slug", item_controller.item_update_post);
 
-router.get("/:categorySlug/:slug", item_controller.item_detail);
+// router.get("/:categorySlug/:slug", item_controller.item_detail);
 
-router.get("/:categorySlug/sides", item_controller.item_list);
+// router.get("/:slug", item_controller.item_list);
 
-/// SIDE INSTANCE ROUTES ///
+// /// SIDE INSTANCE ROUTES ///
 
-router.get(
-  "/:categorySlug/sideinstance/create",
-  item_instance_controller.iteminstance_create_get
-);
-router.post(
-  "/:categorySlug/sideinstance/create",
-  item_instance_controller.iteminstance_create_post
-);
+// router.get(
+//   "/:categorySlug/sideinstance/create",
+//   item_instance_controller.iteminstance_create_get
+// );
+// router.post(
+//   "/:categorySlug/sideinstance/create",
+//   item_instance_controller.iteminstance_create_post
+// );
 
-router.get(
-  "/:categorySlug/sideinstance/:id/delete",
-  item_instance_controller.iteminstance_delete_get
-);
-router.post(
-  "/:categorySlug/sideinstance/:id/delete",
-  item_instance_controller.iteminstance_delete_post
-);
+// router.get(
+//   "/:categorySlug/sideinstance/:id/delete",
+//   item_instance_controller.iteminstance_delete_get
+// );
+// router.post(
+//   "/:categorySlug/sideinstance/:id/delete",
+//   item_instance_controller.iteminstance_delete_post
+// );
 
-router.get(
-  "/:categorySlug/sideinstance/:id/update",
-  item_instance_controller.iteminstance_update_get
-);
-router.post(
-  "/:categorySlug/sideinstance/:id/update",
-  item_instance_controller.iteminstance_update_post
-);
+// router.get(
+//   "/:categorySlug/sideinstance/:id/update",
+//   item_instance_controller.iteminstance_update_get
+// );
+// router.post(
+//   "/:categorySlug/sideinstance/:id/update",
+//   item_instance_controller.iteminstance_update_post
+// );
 
-router.get(
-  "/:categorySlug/sideinstance/:id",
-  item_instance_controller.iteminstance_detail
-);
+// router.get(
+//   "/:categorySlug/sideinstance/:id",
+//   item_instance_controller.iteminstance_detail
+// );
 
-router.get(
-  "/:categorySlug/sideinstances",
-  item_instance_controller.iteminstance_list
-);
+// router.get(
+//   "/:categorySlug/sideinstances",
+//   item_instance_controller.iteminstance_list
+// );
 
 module.exports = router;
