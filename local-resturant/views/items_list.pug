@@ -5,6 +5,12 @@ block content
     h1= title 
     .items-list
         ul 
-            each item in items_list 
-                li 
-                    a(href=item.url) #{item.name}
+            each item in items_list
+                .item  
+                    li 
+                        .top-row 
+                            a(href=item.url) #{item.name} 
+                            p $#{item.price}
+                        if item.description != null 
+                            p.description #{item.description}
+                hr
