@@ -1,0 +1,29 @@
+.hero {
+    margin: 1em;
+
+    p {
+        margin: 0.5em auto;
+    }
+}
+
+.menu {
+    margin: 1em;
+    .items {
+        margin: 0.5em;
+        padding: 0.5em;
+        display: grid;
+        gap: 0.5em;
+        grid-template-columns: 1fr 1fr 1fr;
+        .item {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            align-items: center;
+            p {
+                text-align: center;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+
+}
