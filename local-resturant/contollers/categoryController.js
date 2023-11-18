@@ -2,18 +2,19 @@ const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
 
-
 const asyncHandler = require("express-async-handler");
 
 exports.index = asyncHandler(async (req, res, next) => {
   const [
     categories,
     items,
+    iteminstances,
     numItemsInstances,
     numAvailableItemInstance,
   ] = await Promise.all([
     Category.find({}, "name").exec(),
     Item.find({}, "name price category").sort({ name: 1 }).exec(),
+    ItemInstance.find({}, "status item").exec(),
     ItemInstance.countDocuments().exec(),
     ItemInstance.countDocuments({ status: "Available" }).exec(),
   ]);
@@ -22,6 +23,7 @@ exports.index = asyncHandler(async (req, res, next) => {
     title: "Local Resturant",
     categories: categories,
     items: items,
+    iteminstances: iteminstances,
     item_instance_count: numItemsInstances,
     available_item_instance_count: numAvailableItemInstance,
   });
