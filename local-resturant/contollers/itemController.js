@@ -27,10 +27,12 @@ exports.item_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific Item.
 exports.item_detail = asyncHandler(async (req, res, next) => {
-  const item = await Item.findById(req.params.slug).exec();
+  const item = await Item.findById(req.params.slug).populate('Category').exec();
   const itemInstances = await ItemInstances.find({
     item: req.params.slug,
-  }).populate('item').exec();
+  })
+    .populate("item")
+    .exec();
   res.render("item_detail", {
     item_info: item,
     item_instances: itemInstances,
@@ -39,7 +41,7 @@ exports.item_detail = asyncHandler(async (req, res, next) => {
 
 // Display Item create form on GET.
 exports.item_create_get = asyncHandler(async (req, res, next) => {
-  res.send(`NOT IMPLEMENTED: Item create GET ${req.params.categorySlug}`);
+  res.render("item_form", { title: "Create Item" });
 });
 
 // Handle Item create on POST.
