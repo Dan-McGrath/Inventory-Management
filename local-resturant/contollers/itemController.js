@@ -1,5 +1,6 @@
 const Item = require("../models/item");
 const Category = require("../models/category");
+const ItemInstances = require("../models/iteminstance");
 const asyncHandler = require("express-async-handler");
 
 // Display list of all Items.
@@ -24,9 +25,14 @@ exports.item_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific Item.
 exports.item_detail = asyncHandler(async (req, res, next) => {
-  const item = await Item.find({ name: req.params.slug }).exec();
+  const item = await Item.findById(req.params.slug).exec();
+  const itemInstances = await ItemInstances.find({
+    item: req.params.slug,
+  }).populate('item').exec();
+  console.log(itemInstances);
   res.render("item_detail", {
     item_info: item,
+    item_instances: itemInstances,
   });
 });
 
