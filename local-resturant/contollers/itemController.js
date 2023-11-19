@@ -29,7 +29,6 @@ exports.item_detail = asyncHandler(async (req, res, next) => {
   const itemInstances = await ItemInstances.find({
     item: req.params.slug,
   }).populate('item').exec();
-  console.log(itemInstances);
   res.render("item_detail", {
     item_info: item,
     item_instances: itemInstances,
