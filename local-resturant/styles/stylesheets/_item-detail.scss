@@ -1,0 +1,12 @@
+.item-detail {
+    .details {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        p {
+            padding: 0.5em;
+        }
+    }
+}
