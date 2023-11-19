@@ -8,7 +8,13 @@ exports.iteminstance_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific ItemInstance.
 exports.iteminstance_detail = asyncHandler(async (req, res, next) => {
-  res.send(`NOT IMPLEMENTED: ItemInstance detail: ${req.params.slug}`);
+  const itemInstance = await ItemInstance.findById(req.params.id)
+    .populate("item")
+    .exec();
+  console.log(itemInstance);
+  res.render("instance_detail", {
+    instance: itemInstance,
+  });
 });
 
 // Display ItemInstance create form on GET.
