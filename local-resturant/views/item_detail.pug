@@ -1,13 +1,22 @@
 extends layout 
 
 block content 
-    for item in item_info
-        h1 #{item.title}
+    .item-detail
+        
+        h1 #{item_info.title}
 
-        .details 
-            p Price: #{item.price} 
-            if item.description 
-                p Description: #{item.description} 
-            else 
-                p Description: No Description provided 
+        .details
+            p Price: $#{item_info.price}
+            if item_info.description
+                p Description: #{item_info.description} 
+            else
+                p Description: No description provided
+        hr
+        .instances 
+            h2 Instances
+            .item-instances 
+                for instance in item_instances 
+                    h3 #{instance.item.title}
+                    p Status: #{instance.status}
+                    p Time Made: #{instance.made}
             
