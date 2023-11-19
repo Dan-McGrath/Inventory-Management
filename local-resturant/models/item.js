@@ -17,13 +17,14 @@ ItemSchema.virtual("slug").get(function () {
 });
 
 ItemSchema.virtual("url").get(function () {
-  return `/menu/${this.category._id}/${this.slug}`;
+  return `/menu/${this.category._id}/${this._id}`;
 });
 
 ItemSchema.virtual("title").get(function () {
-  return this.name.split(' ')
-  .map(w => w[0].toUpperCase() + w.substring(1).toLowerCase())
-  .join(' ');
+  return this.name
+    .split(" ")
+    .map((w) => w[0].toUpperCase() + w.substring(1).toLowerCase())
+    .join(" ");
 });
 
 module.exports = mongoose.model("Item", ItemSchema);
