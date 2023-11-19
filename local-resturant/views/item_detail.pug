@@ -12,12 +12,14 @@ block content
             else
                 p Description: No description provided
         hr
-        .instances 
-            h2 Instances
-            .item-instances 
-                for instance in item_instances 
-                    h3 
-                        a(href=instance.url) #{instance.item.title}
-                    p Status: #{instance.status}
-                    p Time Made: #{instance.made}
+        if item_info.instance
+            .instances 
+                h2 Instances
+                .item-instances 
+                    for instance in item_instances 
+                        h3 
+                            a(href=instance.url) #{instance.item.title}
+                        p Status: #{instance.status}
+                        p Time Made: #{instance.made}
+        else
             
