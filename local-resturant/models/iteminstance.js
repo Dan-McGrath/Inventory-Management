@@ -20,7 +20,7 @@ ItemInstanceSchema.virtual("slug").get(function () {
 });
 
 ItemInstanceSchema.virtual("url").get(function () {
-  return `/menu/${this.item.category.slug}/${this.slug}instance/${this._id}`;
+  return `/menu/${this.item.category._id}/${this.item._id}instance/${this._id}`;
 });
 
 module.exports = mongoose.model("ItemInstance", ItemInstanceSchema);
