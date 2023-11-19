@@ -2,6 +2,7 @@ const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
 
+const { body, validationResult } = require("express-validator");
 const asyncHandler = require("express-async-handler");
 
 exports.index = asyncHandler(async (req, res, next) => {
