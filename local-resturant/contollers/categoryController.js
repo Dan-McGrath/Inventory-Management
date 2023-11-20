@@ -32,7 +32,11 @@ exports.index = asyncHandler(async (req, res, next) => {
 
 // Display list of all Categories.
 exports.category_list = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Category list");
+  const category = await Category.find().exec();
+  res.render('category_list', {
+    title: "Category List",
+    categories: category,
+  });
 });
 
 // Display detail page for a specific Category.
