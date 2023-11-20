@@ -7,11 +7,11 @@ block content
     .items 
         for item in items 
             .item
-                h2 #{item.name}
+                h2 #{item.title}
                 p $#{item.price}
                 if item.description != null 
                     p #{item.description}
             .item-instances 
 
-            
+
             hr                
