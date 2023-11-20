@@ -4,15 +4,19 @@ block content
 
     h1= title 
     .items-list
-        ul 
+        ul
+        - items_list.sort(function(a, b) {let textA = a.name.toUpperCase();let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;}) 
             each item in items_list
                 .item  
                     li
                         .top-row 
                             a.name(href=item.url) #{item.title} 
+                            p.category
+                                a(href=item.category.url) #{item.category.title}
                             p $#{item.price}
                         if item.description != null 
                             p.description #{item.description}
+                        
 
                 hr
             else 
