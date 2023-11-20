@@ -24,6 +24,7 @@ exports.item_detail = asyncHandler(async (req, res, next) => {
     .populate("item")
     .exec();
   res.render("item_detail", {
+    title: item.title,
     item_info: item,
     item_instances: itemInstances,
   });
