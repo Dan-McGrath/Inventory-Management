@@ -5,7 +5,14 @@ const asyncHandler = require("express-async-handler");
 
 // Display list of all ItemInstances.
 exports.iteminstance_list = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: ItemInstance list");
+  const iteminstance = await ItemInstance.find({}, "made status")
+    .populate("item")
+    .exec();
+
+  res.render("iteminstance_list", {
+    title: "List of Item Instances",
+    iteminstances: iteminstance,
+  });
 });
 
 // Display detail page for a specific ItemInstance.
