@@ -7,20 +7,10 @@ const asyncHandler = require("express-async-handler");
 
 // Display list of all Items.
 exports.item_list = asyncHandler(async (req, res, next) => {
-  const category = await Category.findOne(
-    { name: req.params.slug },
-    "name"
-  ).exec();
-  const items = await Item.find({ category: category._id }).exec();
-
-  if (category === null) {
-    const err = new Error("Category not found");
-    err.status = 404;
-    return next(err);
-  }
+  const items = await Item.find().populate("category").exec();
 
   res.render("items_list", {
-    title: `${category.title} List`,
+    title: `Items List`,
     items_list: items,
   });
 });
@@ -72,7 +62,7 @@ exports.item_create_post = [
 
     const item = new Item({
       name: req.body.name,
-      price: req.body.body,
+      price: req.body.price,
       description: req.body.description,
       category: req.body.category,
       instance: req.body.instance,
