@@ -7,7 +7,8 @@ block content
     .items 
         for item in items 
             .item
-                h2 #{item.title}
+                h2 
+                    a(href=item.url) #{item.title}
                 p $#{item.price}
                 if item.description != null 
                     p #{item.description}
