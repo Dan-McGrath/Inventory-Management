@@ -12,7 +12,8 @@ block content
         for item in items 
           if item.category==category.id
             div.item
-              h3 #{item.title}
+              h3 
+                a(href=item.url) #{item.title}
               p $#{item.price}
               div.item-instance
                 - let count = 0
