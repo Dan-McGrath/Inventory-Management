@@ -85,8 +85,8 @@ async function createCategories() {
 async function createItems() {
   console.log("Adding deserts");
   await Promise.all([
-    itemCreate(0, "Pie", 2.99, false, categories[2]),
-    itemCreate(1, "Cookie", 0.99, false, categories[2]),
+    itemCreate(0, "Pie", '2.99', false, categories[2]),
+    itemCreate(1, "Cookie", '0.99', false, categories[2]),
     itemCreate(
       2,
       "Lava Cake",
@@ -94,22 +94,22 @@ async function createItems() {
       "Chocolate cake with fudge and brownie toppings",
       categories[2]
     ),
-    itemCreate(3, "Fries", 0.99, false, categories[1]),
-    itemCreate(4, "Baked Potato", 2.99, false, categories[1]),
-    itemCreate(5, "Coke", 1.99, "Soft Drink", categories[3], false),
-    itemCreate(6, "Sprite", 1.99, "Soft Drink", categories[3], false),
-    itemCreate(7, "Milkshake", 3.99, "Frozen Drink", categories[3], false),
-    itemCreate(8, "Dr. Pepper", 1.99, "Soft Drink", categories[3], false),
-    itemCreate(9, "Orange Juice", 0.99, "Juice", categories[3], false),
+    itemCreate(3, "Fries", '0.99', false, categories[1]),
+    itemCreate(4, "Baked Potato", '2.99', false, categories[1]),
+    itemCreate(5, "Coke", '1.99', "Soft Drink", categories[3], false),
+    itemCreate(6, "Sprite", '1.99', "Soft Drink", categories[3], false),
+    itemCreate(7, "Milkshake", '3.99', "Frozen Drink", categories[3], false),
+    itemCreate(8, "Dr. Pepper", '1.99', "Soft Drink", categories[3], false),
+    itemCreate(9, "Orange Juice", '0.99', "Juice", categories[3], false),
     itemCreate(
       10,
       "Cheeseburger",
-      6.99,
+      '6.99',
       "Sandwhich made with 1/4lbs beef patty, tomatoes and onions",
       categories[0]
     ),
-    itemCreate(11, "Chicken Sandwhich", 4.99, false, categories[0]),
-    itemCreate(12, "Sirloin", 11.99, false, categories[0]),
+    itemCreate(11, "Chicken Sandwhich", '4.99', false, categories[0]),
+    itemCreate(12, "Sirloin", '11.99', false, categories[0]),
   ]);
 }
 
