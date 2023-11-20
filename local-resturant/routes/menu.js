@@ -35,7 +35,7 @@ router.post("/:categorySlug/:slug/update", item_controller.item_update_post);
 
 router.get("/:categorySlug/:slug", item_controller.item_detail);
 
-router.get("/:slug", item_controller.item_list);
+router.get("/items", item_controller.item_list);
 
 /// ITEM INSTANCE ROUTE ///
 
