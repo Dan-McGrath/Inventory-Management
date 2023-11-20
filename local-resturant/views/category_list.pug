@@ -1,0 +1,9 @@
+extends layout 
+
+block content 
+    h1= title 
+
+    for category in categories 
+        h2 #{category.title}
+
+        hr
