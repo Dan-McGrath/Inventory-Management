@@ -3,3 +3,34 @@ extends layout
 block content 
 
     h1 #{title}
+
+    form(method='POST' action='')
+        .form-group     
+            label(for='name') Name: 
+            input#name(type='text', placeholder='Name of item' name='name' required='true' value=(undefined===item ? '' : item.name))
+        .form-group 
+            label(for='price') Price: 
+            input#price(type='text', placeholder='Please format as 2.00 etc' required='true' name='price' value=(undefined===item ? '' : item.price))
+        .form-group 
+            label(for='description')
+            textarea#description(type='textarea' cols='25' rows='4' name='description' ) #{undefined===item ? '' : item.description}
+        .form-group 
+            label(for='category') Category: 
+            select#category(type='select', placeholder='Select category' name='category' required='true')
+                - categories.sort(function(a, b) {let textA = a.name.toUpperCase();let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                for category in categories 
+                    if item 
+                        option(value=category._id selected=(category._id.toString()===item.category._id.toString() ? 'selected' : false)) #{category.name}
+                    else 
+                        option(value=category._id) #{category.name}
+        .form-group 
+            label(for='instance') Allow Instances: 
+            select#instance(type='select', placeholder='Select true or false' name='instance')
+                option(value='true', selected=(undefined===item ? 'false' : item.instance)) True
+                option(value='false', selected=(undefined===item ? 'false' : item.instance)) False
+        button.btn.btn-submit(type='submit') Submit
+
+        if errors
+            ul 
+                for error in errors 
+                    li!= error.msg
