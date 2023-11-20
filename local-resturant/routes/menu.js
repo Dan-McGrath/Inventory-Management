@@ -40,11 +40,11 @@ router.get("/items", item_controller.item_list);
 /// ITEM INSTANCE ROUTE ///
 
 router.get(
-  "/:categorySlug/:slug/create",
+  "/instance/create",
   item_instance_controller.iteminstance_create_get
 );
 router.post(
-  "/:categorySlug/:slug/create",
+  "/instance/create",
   item_instance_controller.iteminstance_create_post
 );
 
@@ -71,10 +71,7 @@ router.get(
   item_instance_controller.iteminstance_detail
 );
 
-router.get(
-  "/:categorySlug/iteminstances",
-  item_instance_controller.iteminstance_list
-);
+router.get("/iteminstances", item_instance_controller.iteminstance_list);
 
 // /// DRINK ROUTES ///
 
