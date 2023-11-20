@@ -37,7 +37,15 @@ exports.category_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific Category.
 exports.category_detail = asyncHandler(async (req, res, next) => {
-  res.send(`NOT IMPLEMENTED: Category detail: ${req.params.slug}`);
+  const [category, itemsinCatagory] = await Promise.all([
+    Category.findById(req.params.id).exec(),
+    Item.find({ category: req.params.id }).sort({ name: 1 }).exec(),
+  ]);
+
+  res.render("category_detail", {
+    title: `${category.title}`,
+    items: itemsinCatagory,
+  });
 });
 
 // Display Category create form on GET.
