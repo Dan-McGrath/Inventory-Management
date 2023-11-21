@@ -14,7 +14,7 @@ block content
 
         .form-group 
             label(for='made') Date Made: 
-            input#made(type='date' name='made' value=(undefined===iteminstance ? '' : iteminstance.made))
+            input#made(type='datetime-local' name='made' value=(undefined===iteminstance ? '' : iteminstance.made))
 
         .form-group 
             label(for='status') Status: 
