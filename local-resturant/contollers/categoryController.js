@@ -14,7 +14,9 @@ exports.index = asyncHandler(async (req, res, next) => {
     numAvailableItemInstance,
   ] = await Promise.all([
     Category.find({}, "name").exec(),
-    Item.find({}, "name price category title instance").sort({ name: 1 }).exec(),
+    Item.find({}, "name price category title instance")
+      .sort({ name: 1 })
+      .exec(),
     ItemInstance.find({}, "status item").exec(),
     ItemInstance.countDocuments().exec(),
     ItemInstance.countDocuments({ status: "Available" }).exec(),
@@ -33,7 +35,7 @@ exports.index = asyncHandler(async (req, res, next) => {
 // Display list of all Categories.
 exports.category_list = asyncHandler(async (req, res, next) => {
   const category = await Category.find().exec();
-  res.render('category_list', {
+  res.render("category_list", {
     title: "Category List",
     categories: category,
   });
@@ -49,6 +51,7 @@ exports.category_detail = asyncHandler(async (req, res, next) => {
   res.render("category_detail", {
     title: `${category.title}`,
     items: itemsinCatagory,
+    category: category,
   });
 });
 
@@ -96,12 +99,41 @@ exports.category_create_post = [
 
 // Display Category delete form on GET.
 exports.category_delete_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Category delete GET");
+  const [category, allItemsInCategory] = await Promise.all([
+    Category.findById(req.params.id).exec(),
+    Item.find({ category: req.params.id }, "name description").exec(),
+  ]);
+
+  if (category === null) {
+    res.redirect("/menu/categories");
+  }
+  console.log(allItemsInCategory)
+
+  res.render("category_delete", {
+    title: "Delete Category",
+    category: category,
+    category_items: allItemsInCategory,
+  });
 });
 
 // Handle Category delete on POST.
 exports.category_delete_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Category delete POST");
+  const [category, allItemsInCategory] = await Promise.all([
+    Category.findById(req.params.id).exec(),
+    Item.find({ category: req.params.id }, "name description").exec(),
+  ]);
+
+  if (allItemsInCategory.length > 0) {
+    res.render("category_delete", {
+      title: "Category Delete",
+      category: category,
+      category_items: allItemsInCategory,
+    });
+    return;
+  } else {
+    await Category.findByIdAndDelete(req.body.categoryid);
+    res.redirect("/menu/categories");
+  }
 });
 
 // Display Category update form on GET.
