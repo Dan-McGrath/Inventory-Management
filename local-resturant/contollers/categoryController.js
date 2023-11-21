@@ -14,7 +14,7 @@ exports.index = asyncHandler(async (req, res, next) => {
     numAvailableItemInstance,
   ] = await Promise.all([
     Category.find({}, "name").exec(),
-    Item.find({}, "name price category title").sort({ name: 1 }).exec(),
+    Item.find({}, "name price category title instance").sort({ name: 1 }).exec(),
     ItemInstance.find({}, "status item").exec(),
     ItemInstance.countDocuments().exec(),
     ItemInstance.countDocuments({ status: "Available" }).exec(),
