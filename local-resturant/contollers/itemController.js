@@ -17,14 +17,14 @@ exports.item_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific Item.
 exports.item_detail = asyncHandler(async (req, res, next) => {
-  const item = await Item.findById(req.params.slug).populate("category").exec();
+  const item = await Item.findById(req.params.id).populate("category").exec();
   const itemInstances = await ItemInstances.find({
-    item: req.params.slug,
+    item: req.params.id,
   })
     .populate("item")
     .exec();
   res.render("item_detail", {
-    title: item.title,
+    title: item.name,
     item_info: item,
     item_instances: itemInstances,
   });
@@ -87,12 +87,41 @@ exports.item_create_post = [
 
 // Display Item delete form on GET.
 exports.item_delete_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Item delete GET");
+  const [item, allItemInstances] = await Promise.all([
+    Item.findById(req.params.id).exec(),
+    ItemInstances.find({ item: req.params.id }).exec(),
+  ]);
+
+  if (item === null) {
+    res.redirect("/menu/items");
+  }
+  res.render("item_delete", {
+    title: "Delete Item",
+    item: item,
+    instances: allItemInstances,
+  });
 });
 
 // Handle Item delete on POST.
 exports.item_delete_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Item delete POST");
+  const [item, allItemInstances] = await Promise.all([
+    Item.findById(req.params.id).exec(),
+    ItemInstances.find({ item: req.params.id }).exec(),
+  ]);
+
+  
+
+  if (allItemInstances.length > 0) {
+    res.render("item_delete", {
+      title: "Delete Item",
+      item: item,
+      instances: allItemInstances,
+    });
+    return;
+  } else {
+    await Item.findByIdAndDelete(req.body.itemid);
+    res.redirect("/menu/items");
+  }
 });
 
 // Display Item update form on GET.
