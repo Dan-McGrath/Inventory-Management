@@ -36,38 +36,38 @@ router.post(
   item_instance_controller.iteminstance_create_post
 );
 
-router.get("/:categorySlug/:slug/delete", item_controller.item_delete_get);
-router.post("/:categorySlug/:slug/delete", item_controller.item_delete_post);
+router.get("/:categorySlug/:id/delete", item_controller.item_delete_get);
+router.post("/:categorySlug/:id/delete", item_controller.item_delete_post);
 
-router.get("/:categorySlug/:slug/update", item_controller.item_update_get);
-router.post("/:categorySlug/:slug/update", item_controller.item_update_post);
+router.get("/:categorySlug/:id/update", item_controller.item_update_get);
+router.post("/:categorySlug/:id/update", item_controller.item_update_post);
 
-router.get("/:categorySlug/:slug", item_controller.item_detail);
+router.get("/:categorySlug/:id", item_controller.item_detail);
 
 router.get("/items", item_controller.item_list);
 
 /// ITEM INSTANCE ROUTE ///
 
 router.get(
-  "/:categorySlug/:slug/:id/delete",
+  "/items/:slug/:id/delete",
   item_instance_controller.iteminstance_delete_get
 );
 router.post(
-  "/:categorySlug/:slug/:id/delete",
+  "/items/:slug/:id/delete",
   item_instance_controller.iteminstance_delete_post
 );
 
 router.get(
-  "/:categorySlug/:slug/:id/update",
+  "/items/:slug/:id/update",
   item_instance_controller.iteminstance_update_get
 );
 router.post(
-  "/:categorySlug/:slug/:id/update",
+  "/items/:slug/:id/update",
   item_instance_controller.iteminstance_update_post
 );
 
 router.get(
-  "/:categorySlug/:slug/:id",
+  "/items/:slug/:id",
   item_instance_controller.iteminstance_detail
 );
 
