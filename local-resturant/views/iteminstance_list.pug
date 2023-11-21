@@ -4,6 +4,9 @@ block content
     h1= title
         - iteminstances.sort(function(a, b) {let textA = a.item.name.toUpperCase();let textB = b.item.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;})  
         for instance in iteminstances
-            h2 #{instance.item.title}
-            p #{instance.made}
+            h2 
+                a(href=instance.url) #{instance.item.title}
+            p #{instance.date_time}
             p #{instance.status}
+
+            hr
