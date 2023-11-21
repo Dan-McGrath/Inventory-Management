@@ -78,12 +78,24 @@ exports.iteminstance_create_post = [
 
 // Display ItemInstance delete form on GET.
 exports.iteminstance_delete_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: ItemInstance delete GET");
+  const instance = await ItemInstance.findById(req.params.id)
+    .populate("item")
+    .exec();
+
+  if (instance === null) {
+    res.redirect("/menu/instances");
+  }
+
+  res.render("instance_delete", {
+    title: "Instance Delete",
+    instance: instance,
+  });
 });
 
 // Handle ItemInstance delete on POST.
 exports.iteminstance_delete_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: ItemInstance delete POST");
+  await ItemInstance.findByIdAndDelete(req.body.instanceid);
+  res.redirect("/menu/iteminstances");
 });
 
 // Display ItemInstance update form on GET.
