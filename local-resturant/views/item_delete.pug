@@ -1,0 +1,27 @@
+extends layout 
+
+block content 
+    h1 #{title}: #{item.title}
+
+    if instances.length 
+        p Delete the following instances before attempting to delete this item.
+
+        .instances 
+            h3 Instances 
+
+            dl 
+                each instance in instances 
+                    dt 
+                        a(href=instance.url) #{instance.status}
+                    dd #{instance.date_time}
+                    hr
+
+    else 
+        p Do you really want to delete this Item?
+
+
+        form(method='POST' action='')
+            .form-group 
+                input#itemid(type='hidden' name='itemid' required='true' value=item._id)
+            button.btn.btn-delete(type='submit') Delete 
+
