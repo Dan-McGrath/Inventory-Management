@@ -107,8 +107,6 @@ exports.category_delete_get = asyncHandler(async (req, res, next) => {
   if (category === null) {
     res.redirect("/menu/categories");
   }
-  console.log(allItemsInCategory)
-
   res.render("category_delete", {
     title: "Delete Category",
     category: category,
