@@ -16,8 +16,9 @@ ItemSchema.virtual("slug").get(function () {
   return slug;
 });
 
+
 ItemSchema.virtual("url").get(function () {
-  return `/menu/${this.category._id}/${this._id}`;
+  return `/menu/${this.category}/${this._id}`;
 });
 
 ItemSchema.virtual("title").get(function () {
