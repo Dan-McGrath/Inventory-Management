@@ -21,7 +21,6 @@ exports.iteminstance_detail = asyncHandler(async (req, res, next) => {
   const itemInstance = await ItemInstance.findById(req.params.id)
     .populate("item")
     .exec();
-  console.log(itemInstance);
   res.render("instance_detail", {
     instance: itemInstance,
   });
@@ -30,7 +29,6 @@ exports.iteminstance_detail = asyncHandler(async (req, res, next) => {
 // Display ItemInstance create form on GET.
 exports.iteminstance_create_get = asyncHandler(async (req, res, next) => {
   const items = await Item.find({}, "title name").exec();
-  console.log(items);
   res.render("instance_create", {
     title: "Create Instance",
     item_list: items,
