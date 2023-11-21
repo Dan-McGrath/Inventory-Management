@@ -1,0 +1,25 @@
+extends layout 
+
+block content 
+    h1 #{title}: #{category.title}
+    
+    if category_items.length 
+        p Delete the following items before attempting to delete this category.
+
+        .items 
+            h3 Items 
+
+            dl 
+                each item in category_items 
+                    dt 
+                        a(href=item.url) #{item.title}
+                    dd #{item.description}
+                    hr 
+    else
+        p Do you really want to delete this Category?
+
+        form(method='POST' action='')
+            .form-group 
+                input#categoryid(type='hidden' name='categoryid' required='true' value=category._id)
+
+            button.btn.btn-delete(type='submit') Delete 
