@@ -16,19 +16,20 @@ block content
               h3 
                 a(href=item.url) #{item.title}
               p $#{item.price}
-              div.item-instance
-                - let count = 0
-                div.status 
-                  for iteminstance in iteminstances
-                      
-                    if iteminstance.item==item.id
-                      - count += 1
-                  
-                        p #{iteminstance.status}
-                          
-                if count!=0
-                  p Total items #{count}
-                      
+              if item.instance
+                div.item-instance
+                  - let count = 0
+                  div.status 
+                    for iteminstance in iteminstances
+                        
+                      if iteminstance.item==item.id
+                        - count += 1
+                    
+                          p #{iteminstance.status}
+                            
+                  if count!=0
+                    p Total items #{count}
+                        
       hr
     div.count
       h2 Total Counts
