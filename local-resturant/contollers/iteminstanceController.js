@@ -151,7 +151,6 @@ exports.iteminstance_update_post = [
 
     if (!errors.isEmpty()) {
       const allItems = await Item.find().exec();
-      console.log(errors.array());
 
       res.render("instance_form", {
         title: "Update Instance",
