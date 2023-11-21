@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DateTime } = require("luxon");
 
 const Schema = mongoose.Schema;
 
@@ -17,6 +18,10 @@ ItemInstanceSchema.virtual("slug").get(function () {
   let slug = `${this.item.name}instance`;
   slug.replace(" ", "_");
   return slug;
+});
+
+ItemInstanceSchema.virtual("date_time").get(function () {
+  return  DateTime.fromJSDate(this.made).toLocaleString(DateTime.DATETIME_SHORT);
 });
 
 ItemInstanceSchema.virtual("url").get(function () {
