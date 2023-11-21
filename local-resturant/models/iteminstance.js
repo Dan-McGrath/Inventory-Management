@@ -21,11 +21,11 @@ ItemInstanceSchema.virtual("slug").get(function () {
 });
 
 ItemInstanceSchema.virtual("date_time").get(function () {
-  return  DateTime.fromJSDate(this.made).toLocaleString(DateTime.DATETIME_SHORT);
+  return DateTime.fromJSDate(this.made).toLocaleString(DateTime.DATETIME_SHORT);
 });
 
 ItemInstanceSchema.virtual("url").get(function () {
-  return `/menu/${this.item.category}/${this.item._id}/${this._id}`;
+  return `/menu/items/${this.item}/${this._id}`;
 });
 
 module.exports = mongoose.model("ItemInstance", ItemInstanceSchema);
