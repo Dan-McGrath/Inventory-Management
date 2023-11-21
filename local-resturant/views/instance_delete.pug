@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+
+    h1 #{title}: #{instance.item.title}
+
+    .details
+        p #{instance.status}
+        p #{instance.date_time}
+
+    p Do you really want to delete this instance?
+
+    form(method='POST' action='')
+        .form-group 
+            input#instanceid(type='hidden' name='instanceid' required='true' value=instance._id)
+        button.btn.btn-delete(type='submit') Delete
