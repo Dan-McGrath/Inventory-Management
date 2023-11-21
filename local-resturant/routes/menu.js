@@ -27,6 +27,15 @@ router.get("/categories", category_controller.category_list);
 router.get("/item/create", item_controller.item_create_get);
 router.post("/item/create", item_controller.item_create_post);
 
+router.get(
+  "/instance/create",
+  item_instance_controller.iteminstance_create_get
+);
+router.post(
+  "/instance/create",
+  item_instance_controller.iteminstance_create_post
+);
+
 router.get("/:categorySlug/:slug/delete", item_controller.item_delete_get);
 router.post("/:categorySlug/:slug/delete", item_controller.item_delete_post);
 
@@ -38,15 +47,6 @@ router.get("/:categorySlug/:slug", item_controller.item_detail);
 router.get("/items", item_controller.item_list);
 
 /// ITEM INSTANCE ROUTE ///
-
-router.get(
-  "/instance/create",
-  item_instance_controller.iteminstance_create_get
-);
-router.post(
-  "/instance/create",
-  item_instance_controller.iteminstance_create_post
-);
 
 router.get(
   "/:categorySlug/:slug/:id/delete",
