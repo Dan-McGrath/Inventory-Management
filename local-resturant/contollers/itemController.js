@@ -137,7 +137,7 @@ exports.item_update_get = asyncHandler(async (req, res, next) => {
 
   for (const category of allCategories) {
     if (category._id.toString() === item.category._id.toString()) {
-      category.checked = "true";
+      category.isSelected = "true";
     }
   }
   res.render("item_form", {
