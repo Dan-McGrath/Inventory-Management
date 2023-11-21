@@ -1,0 +1,30 @@
+extends layout 
+
+block content 
+
+    h1= title 
+
+    form(method="POST" action='')
+        .form-group 
+            label(for='item') Item: 
+            select#item(type='select' placeholder='Select Item' name='item' required='true')
+                - item_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                for item in item_list 
+                    option(value=item._id, selected=(selected_item==item._id.toString() ? '' : false)) #{item.title} 
+
+        .form-group 
+            label(for='made') Date Made: 
+            input#made(type='date' name='made' value=(undefined===iteminstance ? '' : iteminstance.made))
+
+        .form-group 
+            label(for='status') Status: 
+            select#status(type='select' placeholder='Select Status' name='status' required='true')
+                option(value='Available' selected=(undefined===iteminstance || iteminstance.status!='Available' ? false : 'selected')) Available
+                option(value='Expired' selected=(undefined===iteminstance || iteminstance.status!='Expired' ? false : 'selected')) Expired
+                option(value='Out of Stock' selected=(undefined===iteminstance || iteminstance.status!='Out of Stock' ? false : 'selected')) Out of Stock 
+        button.btn.btn-submit(type='submit') Submit 
+    
+    if errors 
+        ul 
+            for error in errors 
+                li!= error
