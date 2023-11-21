@@ -117,7 +117,7 @@ exports.iteminstance_update_get = asyncHandler(async (req, res, next) => {
     }
   }
   res.render("instance_form", {
-    title: "Update Form",
+    title: "Update Item",
     item_list: allItems,
     iteminstance: instance,
   });
